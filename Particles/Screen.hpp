@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include "Swarm.hpp"
 
 class Screen {
 public:
@@ -34,6 +33,7 @@ public:
     bool processEvents();
     // Setting the color of a pixel based on coordinates of (x, y)
     void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
+    void clear();
 };
 
 #endif /* Screen_hpp */

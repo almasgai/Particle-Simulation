@@ -10,13 +10,16 @@
 #define Particle_hpp
 
 #include <stdio.h>
-class Particle{
+struct Particle{
+    double m_x;
+    double m_y;
+    double m_xspeed;
+    double m_yspeed;
     
 public:
     Particle();
-    ~Particle();
-    double m_x;
-    double m_y;
+    virtual ~Particle();
+    void update();
 };
 
 #endif /* Particle_hpp */

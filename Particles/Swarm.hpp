@@ -20,15 +20,10 @@ private:
 public:
     Swarm();
     virtual ~Swarm();
+    void update();
+    
     const static int NPARTICLES = 5000;
-    Particle * const getPartickes(){ return m_Particles;}
+    const Particle * const getParticles(){ return m_Particles;}
 };
 
 #endif /* Swarm_hpp */
-
-
-
-
-
-
-

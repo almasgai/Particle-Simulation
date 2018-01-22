@@ -14,7 +14,7 @@
 
 using namespace std;
 
-int main(int argc, char* args[]){
+int main(){
     
     // Initializing/Seeding a random number based on the time program runs
     srand(time(NULL));
@@ -37,17 +37,25 @@ int main(int argc, char* args[]){
         // Gets the number of milliseconds since program ran
         int elapsed = SDL_GetTicks();
         
+        screen.clear();
+        swarm.update();
+        
         // Allows a pulsating effect
         unsigned char red = (unsigned char)((1 + sin(elapsed * 0.002)) * 128);
         unsigned char green = (unsigned char)((1 + sin(elapsed * 0.002)) * 128);
         unsigned char blue = (unsigned char)((1 + cos(elapsed * 0.002)) * 128);
         
-        for (int y = 0; y < Screen::HEIGHT; y++) {
-            for (int x = 0; x < Screen::WIDTH; x++) {
-                screen.setPixel(x, y, red, green, blue);
-            }
+        const Particle * const particles = swarm.getParticles();
+        
+        for (int i = 0; i < Swarm::NPARTICLES; i++) {
+            Particle p = particles[i];
+            
+            int x = (p.m_x + 1) * Screen::WIDTH / 2;
+            int y = (p.m_y + 1) * Screen::HEIGHT / 2;
+            
+            screen.setPixel(x, y, red, green, blue);
         }
-                
+          
         // Draw to the screen
         screen.update();
         

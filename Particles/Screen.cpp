@@ -12,10 +12,8 @@ Screen::Screen() : m_window(NULL), m_renderer(NULL), m_texture(NULL), m_buffer(N
 
 bool Screen::init(){
     
-    if(SDL_Init(SDL_INIT_VIDEO) < 0){
-        // cout << "SDL FAILED" << endl;
-        return 1;
-    }
+    if(SDL_Init(SDL_INIT_VIDEO) < 0){ return 1; }
+    
     // ### Variables do not need to be initialized here becuase they were intiailized in Screen.hpp file
     m_window = SDL_CreateWindow("Simulation", SDL_WINDOWPOS_UNDEFINED,
                                            SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
@@ -24,6 +22,7 @@ bool Screen::init(){
         SDL_Quit();
         return false;
     }
+    
     // Creating a renderer
     m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_PRESENTVSYNC);
     
@@ -66,25 +65,11 @@ bool Screen::init(){
     // 1. buffer    2. value writing into every memory (255 => white, 0 => black)  3. # of bytes to write to
     memset(m_buffer, 255, HEIGHT * WIDTH * sizeof(Uint32));
     
-    // Setting just one pixel to a specific color
-    
-    for (int i = 0; i < WIDTH * HEIGHT; i++) {
-        *(m_buffer + i) = 0xFFFF0000;
-    }
-    
-    // pitch is the number of memory allocated to one row of pixels which is screen width * sizeof(Uint32)
-    //Update Texture with the pixel information contained in the buffer
-    SDL_UpdateTexture(m_texture, NULL, m_buffer, (WIDTH * (int)sizeof(Uint32)));
-    
-    
-    SDL_RenderClear(m_renderer);
-    // entire texture and the enture renderer for the two NULLS repctively
-    SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
-    // rendering preently to the window
-    SDL_RenderPresent(m_renderer);
-    
     return true;
 }
+
+void Screen::clear(){ memset(m_buffer, 255, HEIGHT * WIDTH * sizeof(Uint32)); }
+
 bool Screen::processEvents(){
     SDL_Event event;
     
@@ -98,6 +83,11 @@ bool Screen::processEvents(){
 
 
 void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue){
+    
+    if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT) {
+        return;
+    }
+    
     // Initializing color to be created by the red, blue, and green being passed in
     Uint32 color = 0;
     
@@ -152,8 +142,5 @@ void Screen::close(){
     SDL_DestroyWindow(m_window);
     // Cleans up any resource(s) SDL is using
     SDL_Quit();
-    
-    
-    
 }
 
