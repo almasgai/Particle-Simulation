@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
+#include "Swarm.hpp"
 
 class Screen {
 public:
@@ -21,16 +22,18 @@ private:
     SDL_Window *m_window;
     SDL_Renderer *m_renderer;
     SDL_Texture *m_texture;
-    Uint32 * m_buffer;
+    Uint32 *m_buffer;
     // Creating an SDL Event object for the loop
-    SDL_Event event;
     
     
 public:
     Screen();
     bool init();
+    void update();
     void close();
     bool processEvents();
+    // Setting the color of a pixel based on coordinates of (x, y)
+    void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
 };
 
 #endif /* Screen_hpp */

@@ -10,6 +10,8 @@
 		61373F382000009E0003A3BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61373F372000009E0003A3BB /* main.cpp */; };
 		61373F4820001D4C0003A3BB /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61373F4720001D4C0003A3BB /* SDL2.framework */; };
 		615421C12003139B00190528 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 615421BF2003139B00190528 /* Screen.cpp */; };
+		61EA7BB92011484A0038331C /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61EA7BB72011484A0038331C /* Particle.cpp */; };
+		61EA7BBC2011485D0038331C /* Swarm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61EA7BBA2011485D0038331C /* Swarm.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +32,10 @@
 		61373F4720001D4C0003A3BB /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		615421BF2003139B00190528 /* Screen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Screen.cpp; sourceTree = "<group>"; };
 		615421C02003139B00190528 /* Screen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Screen.hpp; sourceTree = "<group>"; };
+		61EA7BB72011484A0038331C /* Particle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
+		61EA7BB82011484A0038331C /* Particle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Particle.hpp; sourceTree = "<group>"; };
+		61EA7BBA2011485D0038331C /* Swarm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Swarm.cpp; sourceTree = "<group>"; };
+		61EA7BBB2011485D0038331C /* Swarm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Swarm.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,10 @@
 				615421BF2003139B00190528 /* Screen.cpp */,
 				615421C02003139B00190528 /* Screen.hpp */,
 				61373F372000009E0003A3BB /* main.cpp */,
+				61EA7BB72011484A0038331C /* Particle.cpp */,
+				61EA7BB82011484A0038331C /* Particle.hpp */,
+				61EA7BBA2011485D0038331C /* Swarm.cpp */,
+				61EA7BBB2011485D0038331C /* Swarm.hpp */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -136,7 +146,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61EA7BBC2011485D0038331C /* Swarm.cpp in Sources */,
 				61373F382000009E0003A3BB /* main.cpp in Sources */,
+				61EA7BB92011484A0038331C /* Particle.cpp in Sources */,
 				615421C12003139B00190528 /* Screen.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
