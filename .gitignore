@@ -36,5 +36,5 @@
 
 .DS_STORE
 
-*.xcodeproj
-*.framework
+Particles.xcodeproj/
+SDL2.framework/
