@@ -38,7 +38,7 @@ int main(){
         int elapsed = SDL_GetTicks();
         
         screen.clear();
-        swarm.update();
+        swarm.update(elapsed);
         
         // Allows a pulsating effect
         unsigned char red = (unsigned char)((1 + sin(elapsed * 0.002)) * 128);
@@ -51,7 +51,7 @@ int main(){
             Particle p = particles[i];
             
             int x = (p.m_x + 1) * Screen::WIDTH / 2;
-            int y = (p.m_y + 1) * Screen::HEIGHT / 2;
+            int y = p.m_y * Screen::WIDTH / 2 + Screen::HEIGHT/2;
             
             screen.setPixel(x, y, red, green, blue);
         }

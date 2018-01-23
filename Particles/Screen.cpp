@@ -63,12 +63,12 @@ bool Screen::init(){
     // To make sure that the window stays black and doesn't display garbage (horizontal streaks of various colors),
     // I needed to 0 out the values within the buffer to make in 'clean'
     // 1. buffer    2. value writing into every memory (255 => white, 0 => black)  3. # of bytes to write to
-    memset(m_buffer, 255, HEIGHT * WIDTH * sizeof(Uint32));
+    memset(m_buffer, 0, HEIGHT * WIDTH * sizeof(Uint32));
     
     return true;
 }
 
-void Screen::clear(){ memset(m_buffer, 255, HEIGHT * WIDTH * sizeof(Uint32)); }
+void Screen::clear(){ memset(m_buffer, 0, HEIGHT * WIDTH * sizeof(Uint32)); }
 
 bool Screen::processEvents(){
     SDL_Event event;
