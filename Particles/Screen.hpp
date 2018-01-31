@@ -22,6 +22,9 @@ private:
     SDL_Renderer *m_renderer;
     SDL_Texture *m_texture;
     Uint32 *m_buffer;
+    // Second buffer added to store calculated value of blur effect
+    Uint32 *m_buffer2;
+    Uint32 *temp;
     // Creating an SDL Event object for the loop
     
     
@@ -34,6 +37,7 @@ public:
     // Setting the color of a pixel based on coordinates of (x, y)
     void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
     void clear();
+    void boxBlur();
 };
 
 #endif /* Screen_hpp */

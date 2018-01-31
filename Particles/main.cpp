@@ -31,13 +31,14 @@ int main(){
     
     // Creating a loop so that the window can be constantly updated
     while (true) {
+        
         // update & draw particles
         // Check events
         
         // Gets the number of milliseconds since program ran
         int elapsed = SDL_GetTicks();
         
-        screen.clear();
+        // screen.clear();
         swarm.update(elapsed);
         
         // Allows a pulsating effect
@@ -49,12 +50,14 @@ int main(){
         
         for (int i = 0; i < Swarm::NPARTICLES; i++) {
             Particle p = particles[i];
-            
+            // Centers the explosion into the middle of the window
             int x = (p.m_x + 1) * Screen::WIDTH / 2;
             int y = p.m_y * Screen::WIDTH / 2 + Screen::HEIGHT/2;
             
             screen.setPixel(x, y, red, green, blue);
         }
+        
+        screen.boxBlur();
           
         // Draw to the screen
         screen.update();

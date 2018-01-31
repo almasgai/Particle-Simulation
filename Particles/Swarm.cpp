@@ -8,12 +8,9 @@
 
 #include "Swarm.hpp"
 
-Swarm::Swarm(): lastTime(0){
-    m_Particles = new Particle[NPARTICLES];
-}
-Swarm::~Swarm(){
-    delete [] m_Particles;
-}
+Swarm::Swarm(): lastTime(0){ m_Particles = new Particle[NPARTICLES]; }
+
+Swarm::~Swarm(){ delete [] m_Particles; }
 
 void Swarm::update(int elapsed){
     
